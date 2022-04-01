@@ -1,0 +1,46 @@
+.App {
+  text-align: center;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* FOR HEADER COMPONENT */
+
+.mainHeader{
+  height: 80px;
+  color: white;
+  background-color: rgba(134, 47, 47, 0.493);
+  margin: 0;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mainHeader>h1{
+  margin-left:20px ;
+}
+.button{
+  background: transparent;
+  border: 1px solid #171212;
+  border-radius: 20px;
+  padding: 5px;
+  cursor: pointer;
+
+  transition: all 0.1s ease-in;
+}
+.buttonLarge{
+  margin-right: 20px;
+  padding:20px
+}
+
+.buttonLarge:hover{
+  background-color: #171212;
+  color: white;
+}

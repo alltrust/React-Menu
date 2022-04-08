@@ -26,6 +26,7 @@ body {
 .mainHeader>h1{
   margin-left:20px ;
 }
+
 .button{
   background: transparent;
   border: 1px solid #171212;
@@ -43,4 +44,54 @@ body {
 .buttonLarge:hover{
   background-color: #171212;
   color: white;
+}
+
+/* FOR MAIN */
+
+.contentHeading{
+  color: white;
+  padding: 20px;
+
+}
+.content{
+  width: 600px;
+  height:400px;
+  background-color:rgba(134, 47, 47, 0.493);;
+  margin:auto;
+  border-radius: 20px;
+}
+.content>p{
+  padding:20px;
+  font-weight: 500;
+}
+
+/* FOR MENU */
+.menuMealItems{
+  background-color: rgba(139, 135, 135, 0.479);
+  height:100%;
+  width:640px;
+  margin:auto;
+  border-radius: 20px;
+}
+
+/* FOR MODAL */
+
+.overlay{
+  position:absolute ;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.7);
+}
+.modal{
+  background-color: cadetblue;
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 30%;
+  width: 400px;
+  height: 400px;
+
 }

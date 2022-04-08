@@ -1,0 +1,18 @@
+.button{
+    background: transparent;
+    border: 1px solid #171212;
+    border-radius: 20px;
+    padding: 5px;
+    cursor: pointer;
+  
+    transition: all 0.1s ease-in;
+  }
+  .buttonLarge{
+    margin-right: 20px;
+    padding:20px
+  }
+  
+  .buttonLarge:hover{
+    background-color: #171212;
+    color: white;
+  }

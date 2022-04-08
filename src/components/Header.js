@@ -1,10 +1,14 @@
-import React,{useState} from 'react';
+import React,{useState, useContext} from 'react';
 import styles from './Header.module.css'
 import Button from '../IU/Button';
 import ModalWithOverlay from './ModalWithOverlay';
+import SelectedMealItemsContext from '../store/selectedMeals-context';
 
 const Header = () => {
     const [showModal, setShowModal] = useState(false);
+    const selectedMealCtx= useContext(SelectedMealItemsContext)
+
+    const numOfMealsInCart = selectedMealCtx.meals.length
   
     const showModalHandler = () => {
       setShowModal(true);
@@ -21,7 +25,7 @@ const Header = () => {
           type="button"
           onClick={showModalHandler}
         >
-          CART <span>#</span>
+          CART <span>{numOfMealsInCart}</span>
         </Button>
         {showModal && <ModalWithOverlay closeModal={closeModalHandler} />}
       </div>

@@ -1,22 +1,20 @@
 import React from "react";
 
 
-const MealInputWithLabel = ({ meal, mealAmount, handleAmountInput }) => {
+const MealInputWithLabel = React.forwardRef(({ meal }, ref) => {
     console.log("meal item reached");
   
     return (
       <div>
         <label htmlFor={meal.id}>Amount</label>
         <input
-          // ref={ref}
-          onChange={handleAmountInput}
+          ref={ref}
           id={meal.id}
           meal={meal}
           min="1"
-          value={mealAmount}
           type="number"
         ></input>
       </div>
     );
-  };
+  });
   export default MealInputWithLabel;

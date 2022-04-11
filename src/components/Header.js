@@ -8,7 +8,12 @@ const Header = () => {
     const [showModal, setShowModal] = useState(false);
     const selectedMealCtx= useContext(SelectedMealItemsContext)
 
-    const numOfMealsInCart = selectedMealCtx.meals.length
+
+    const numOfMealsInCart = selectedMealCtx.meals.reduce((current,item)=>{
+        return current + item.amount
+    }, 0)
+
+    console.log(numOfMealsInCart)
   
     const showModalHandler = () => {
       setShowModal(true);

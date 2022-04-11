@@ -31,3 +31,27 @@
     background-color: #171212;
     color: white;
   }
+
+  .jump{
+      animation: jump 300ms ease-out;
+  }
+  @keyframes jump{
+      0%{
+          transform: scale(1);
+      }
+      20%{
+          transform: scale(0.8);
+      }
+      40%{
+          transform: scale(1.15);
+      }
+      60%{
+          transform: scale(1.2);
+      }
+      90%{
+          transform: scale(1.1);
+      }
+      100%{
+        transform:scale(1);
+      }
+  }

@@ -1,8 +1,12 @@
-.meal-item{
+.meal-item, .meal-amount-selected{
     display: flex;
     justify-content: space-around;
     flex-direction: row;
 }
-.meal-item>li{
+.meal-item>li, .meal-amount-selected>li{
     list-style: none;
+}
+
+.meal-amount-selected>li{
+    padding: 5px;
 }

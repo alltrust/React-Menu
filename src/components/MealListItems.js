@@ -6,6 +6,14 @@ import Button from "../IU/Button";
 const MealListItems = ({}) => {
   const selectedMealCtx = useContext(SelectedMealItemsContext);
 
+  const handleAddMeal = (meal) => {
+    selectedMealCtx.addMeals({...meal, amount:1});
+  };
+
+  const handleRemoveMeal =(meal)=>{
+    selectedMealCtx.removeMeals({ ...meal, amount: 1});
+  } 
+
   return (
     <div>
       {selectedMealCtx.meals.map((meal) => {
@@ -13,9 +21,11 @@ const MealListItems = ({}) => {
           <div className={styles["meal-item"]} key={Math.random(meal.key)}>
             <li>{meal.name}</li>
             <li>{meal.price}</li>
-            <Button>-</Button>
-            <li>{meal.amount}</li>
-            <Button>+</Button>
+            <div className={styles["meal-amount-selected"]}>
+              <Button onClick={handleRemoveMeal.bind(null, meal)} >-</Button>
+              <li>{meal.amount}</li>
+              <Button onClick={handleAddMeal.bind(null, meal)}>+</Button>
+            </div>
           </div>
         );
       })}

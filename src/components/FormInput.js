@@ -15,7 +15,6 @@ const FormInput = ({ meal }) => {
 
     const mealInputAmount = mealAmountRef.current.value;
     const mealNumAmount = +mealInputAmount;
-    console.log(meal);
 
     if (mealInputAmount < 1) {
       setValidInput(false);
@@ -30,7 +29,6 @@ const FormInput = ({ meal }) => {
       amount: mealNumAmount,
     });
   };
-  console.log(selectedMealCtx);
   return (
     <form onSubmit={onSubmitHandler}>
       <MealInputWithLabel meal={meal} ref={mealAmountRef} />

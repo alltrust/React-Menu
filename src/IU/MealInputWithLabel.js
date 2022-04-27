@@ -2,7 +2,6 @@ import React from "react";
 
 
 const MealInputWithLabel = React.forwardRef(({ meal }, ref) => {
-    console.log("meal item reached");
   
     return (
       <div>

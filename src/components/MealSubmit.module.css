@@ -1,0 +1,12 @@
+.mealForm{
+    display:flex;
+    align-items: center;
+}
+
+.errorColor{
+    background-color: rgb(236, 101, 101);
+}
+
+.successColor{
+    background-color: rgba(135, 189, 135, 0.432);
+}

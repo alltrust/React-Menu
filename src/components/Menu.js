@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback, useState, useLayoutEffect } from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import FormInput from "./FormInput";
 import styles from "./Menu.module.css";
 
@@ -31,6 +31,7 @@ const Menu = () => {
       setCurrMealItems(mealsItemsData)
       
     } catch (error) {
+      setIsLoading(false)
       setIsError(error.message);
     }
     setIsLoading(false)
@@ -38,7 +39,7 @@ const Menu = () => {
 
   useEffect(() => {
     getDataHandler();
-  }, []);
+  }, [getDataHandler]);
 
   console.log(currMealItems)
 

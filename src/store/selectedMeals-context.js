@@ -5,6 +5,7 @@ const SelectedMealItemsContext = React.createContext({
     mealAmount: 0,
     addMeals: ()=>{},
     removeMeals: ()=>{},
+    clearCart: ()=> {},
   });
 
   export default SelectedMealItemsContext

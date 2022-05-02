@@ -31,25 +31,34 @@ const mealReducer = (state, action) => {
         totalAmount: updatedTotalAmount,
       };
     }
-    case "REMOVE":{
-      const mealItemIndex = state.meals.findIndex((meal)=> meal.id === action.payload.id);
-      const mealItemExists = state.meals[mealItemIndex]
+    case "REMOVE": {
+      const mealItemIndex = state.meals.findIndex(
+        (meal) => meal.id === action.payload.id
+      );
+      const mealItemExists = state.meals[mealItemIndex];
       const updatedTotalAmount = state.totalAmount - mealItemExists.price;
       let updatedMealsArray;
-      if(mealItemExists.amount === 1){
-         updatedMealsArray = state.meals.filter((meal)=> meal.id !== action.payload)
-      }else{
-        const updatedMealItem = {...mealItemExists, amount: mealItemExists.amount -1};
-        updatedMealsArray = [...state.meals]
+      if (mealItemExists.amount === 1) {
+        updatedMealsArray = state.meals.filter(
+          (meal) => meal.id !== action.payload
+        );
+      } else {
+        const updatedMealItem = {
+          ...mealItemExists,
+          amount: mealItemExists.amount - 1,
+        };
+        updatedMealsArray = [...state.meals];
         updatedMealsArray[mealItemIndex] = updatedMealItem;
       }
-      return{
-        meals:updatedMealsArray,
-        totalAmount:updatedTotalAmount
+      return {
+        meals: updatedMealsArray,
+        totalAmount: updatedTotalAmount,
       };
     }
+    case "CLEAR": {
+      return { meals: [], totalAmount: 0 };
+    }
 
-     
     default:
       throw new Error("check again");
   }
@@ -66,12 +75,16 @@ const SelectedMealItemsProvider = ({ children }) => {
   const removeMealsHandler = (meal) => {
     dispatchMealAction({ type: "REMOVE", payload: meal });
   };
+  const clearCartHandler = ()=>{
+    dispatchMealAction({type:"CLEAR"})
+  };
 
   const selectedMealItemsContext = {
     meals: mealState.meals,
     mealAmount: mealState.totalAmount,
     addMeals: addMealsHandler,
     removeMeals: removeMealsHandler,
+    clearCart: clearCartHandler,
   };
 
   return (

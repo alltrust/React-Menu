@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import Button from "../IU/Button";
 import UseSubmit from "../hooks/use-submit";
 
 import styles from "./MealSubmit.module.css";
 
-const MealSubmit = ({onData}) => {
+const MealSubmit = ({ selectedMeal, addOrderHandler }) => {
+
+
   const hasNumber = /\d/;
 
   const {
@@ -29,7 +31,9 @@ const MealSubmit = ({onData}) => {
 
   if (nameInputValid && addressInputValid) {
     formIsValid = true;
-  }
+  };
+  
+
 
   const formSubmitHandler = (e) => {
     e.preventDefault();
@@ -38,18 +42,28 @@ const MealSubmit = ({onData}) => {
       return;
     };
 
-    const data= {
+    const mealData = {
+      orderNumber: Date.now(),
       orderName: userNameInput,
-      orderAddress: userAddressInput
+      orderAddress: userAddressInput,
+      orderAmount: selectedMeal.mealAmount,
+      orderData: selectedMeal.meals,
     };
 
-    onData(data);
-    
+    console.log(mealData);
+
+
+
+    addOrderHandler(mealData);
+    selectedMeal.clearCart();
     resetName();
     resetAddress();
   };
+
+  
   const inputError = nameInputIsInvalid ? styles.errorColor : "";
   const addressError = addressInputIsInvalid ? styles.errorColor : "";
+
 
   return (
     <form onSubmit={formSubmitHandler}>

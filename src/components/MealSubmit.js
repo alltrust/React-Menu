@@ -4,11 +4,7 @@ import UseSubmit from "../hooks/use-submit";
 
 import styles from "./MealSubmit.module.css";
 
-const MealSubmit = () => {
-  //   const [userInput, setUserInput] = useState("");
-  //   const [addressInput, setAddressInput] = useState("");
-  //   const [isTouched, setIsTouched] = useState(false);
-  //   const [addressIsTouched, setAddressIsTouched] = useState(false);
+const MealSubmit = ({onData}) => {
   const hasNumber = /\d/;
 
   const {
@@ -31,26 +27,6 @@ const MealSubmit = () => {
 
   let formIsValid = false;
 
-  //   const inputValid = userInput.trim() !== "";
-  //   const inputIsInvalid = !inputValid && isTouched;
-  //   const addressValid = addressInput.match(hasNumber);
-  //   const addressIsInvalid = !addressValid && addressIsTouched;
-
-  //input state on change,
-  //   const inputChangeHandler = (event) => {
-  //     setUserInput(event.target.value);
-  //   };
-  //   const addressChangeHandler = (event) => {
-  //     setAddressInput(event.target.value);
-  //   };
-
-  //   const userInputTouchedHandler = () => {
-  //     setIsTouched(true);
-  //   };
-  //   const addressTouchedHandler = () => {
-  //     setAddressIsTouched(true);
-  //   };
-
   if (nameInputValid && addressInputValid) {
     formIsValid = true;
   }
@@ -60,12 +36,15 @@ const MealSubmit = () => {
 
     if (!formIsValid) {
       return;
-    }
+    };
 
-    // setUserInput("");
-    // setAddressInput("");
-    // setIsTouched(false);
-    // setAddressIsTouched(false);
+    const data= {
+      orderName: userNameInput,
+      orderAddress: userAddressInput
+    };
+
+    onData(data);
+    
     resetName();
     resetAddress();
   };

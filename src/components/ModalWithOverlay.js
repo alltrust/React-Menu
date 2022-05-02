@@ -1,49 +1,26 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
-import Button from "../IU/Button";
-import SelectedMealItemsContext from "../store/selectedMeals-context";
-import MealListItems from "./MealListItems";
 import styles from "./ModalWithOverlay.module.css";
-import MealSubmit from "./MealSubmit";
 
-const ModalWithOverlay = ({ closeModal }) => {
-  const [fullFormModal, setFullFormModal] = useState(false);
-  const selectedMealCtx = useContext(SelectedMealItemsContext);
-  const p = selectedMealCtx.mealAmount;
-  const mealsAmount = p.toFixed(2);
+const ModalWithOverlay = ({ closeModal, children }) => {
+
 
   const Overlay = () => {
     return <div className={styles.overlay} onClick={closeModal}></div>;
   };
 
 
-  const extendFormHandler = () => {
-    if (mealsAmount !== "0.00") {
-      setFullFormModal(true);
-    }
-  };
-
-  const stretchFormModal = fullFormModal
-    ? `${styles.modal} ${styles.fullModal}`
-    : styles.modal;
-
-  const Modal = () => {
+  const Modal = ({children}) => {
     return (
-      <div className={stretchFormModal}>
-        <div>
-          <MealListItems />
-          <div>{mealsAmount}</div>
-        </div>
-        <Button onClick={closeModal}>CLOSE</Button>
-        <Button onClick={extendFormHandler}>Submit Order</Button>
-        {fullFormModal ? <MealSubmit />: <p>please select a meal</p>}
+      <div className={styles.modal}>
+        <div>{children}</div>
       </div>
     );
   };
   return (
     <React.Fragment>
-      {ReactDOM.createPortal(<Overlay />, document.getElementById("overlay"))}
-      {ReactDOM.createPortal(<Modal />, document.getElementById("modal"))}
+      {ReactDOM.createPortal(<Overlay closeModal={closeModal}/>, document.getElementById("overlay"))}
+      {ReactDOM.createPortal(<Modal closeModal={closeModal}>{children}</Modal>, document.getElementById("modal"))}
     </React.Fragment>
   );
 };

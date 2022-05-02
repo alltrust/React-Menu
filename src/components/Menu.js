@@ -52,11 +52,11 @@ const loadingMsg = "Gathering your delicious meals, please wait...";
         {isError && <p>{isError}</p>}
         {currMealItems.map((meal) => {
           return (
-            <div key={meal.id} meal={meal.data} className={styles.mealItem}>
+            <div key={meal.id} id={meal.id} meal={meal.data} className={styles.mealItem}>
               <h4>{meal.data.food}</h4>
               <div>{meal.data.description}</div>
               <div>{meal.data.price}</div>
-              <FormInput meal={meal.data} />
+              <FormInput meal={meal.data} id={meal.id} />
             </div>
           );
         })}

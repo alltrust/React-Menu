@@ -1,14 +1,14 @@
 import React from "react";
 
 
-const MealInputWithLabel = React.forwardRef(({ meal }, ref) => {
+const MealInputWithLabel = React.forwardRef(({ meal, id }, ref) => {
   
     return (
       <div>
-        <label htmlFor={meal.id}>Amount</label>
+        <label htmlFor={id}>Amount</label>
         <input
           ref={ref}
-          id={meal.id}
+          id={id}
           meal={meal}
           min="1"
           type="number"

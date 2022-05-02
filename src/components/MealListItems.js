@@ -13,7 +13,9 @@ const MealListItems = ({}) => {
 
   const handleRemoveMeal =(meal)=>{
     selectedMealCtx.removeMeals({ ...meal, amount: 1});
+    console.log(selectedMealCtx.meals)
   } 
+
 
   return (
     <div>

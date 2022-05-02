@@ -4,7 +4,7 @@ import Button from "../IU/Button";
 import styles from "./FormInput.module.css";
 import SelectedMealItemsContext from "../store/selectedMeals-context";
 
-const FormInput = ({ meal }) => {
+const FormInput = ({ meal, id }) => {
   const mealAmountRef = useRef();
   const [validInput, setValidInput] = useState(true);
 
@@ -22,8 +22,8 @@ const FormInput = ({ meal }) => {
     }
 
     selectedMealCtx.addMeals({
-      key: meal.id,
-      id: meal.id,
+      key: id,
+      id: id,
       name: meal.food,
       price: meal.price,
       amount: mealNumAmount,
@@ -31,7 +31,7 @@ const FormInput = ({ meal }) => {
   };
   return (
     <form onSubmit={onSubmitHandler}>
-      <MealInputWithLabel meal={meal} ref={mealAmountRef} />
+      <MealInputWithLabel meal={meal} id={id}  ref={mealAmountRef} />
       <Button type="submit" className={`${styles.button}${styles.buttonSmall}`}>
         Add to Cart
       </Button>

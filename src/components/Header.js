@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import styles from "./Header.module.css";
 import Button from "../IU/Button";
-import ModalWithOverlay from "./ModalWithOverlay";
+import Checkout from "./Checkout";
 import SelectedMealItemsContext from "../store/selectedMeals-context";
 
 const Header = () => {
@@ -42,7 +42,7 @@ const Header = () => {
       >
         CART <span>{numOfMealsInCart}</span>
       </Button>
-      {showModal && <ModalWithOverlay closeModal={closeModalHandler} />}
+      {showModal && <Checkout closeModal={closeModalHandler} />}
     </div>
   );
 };

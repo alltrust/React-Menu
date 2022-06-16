@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import styles from "./Header.module.css";
-import Button from "../IU/Button";
+import Button from "../UI/Button";
 import Checkout from "./Checkout";
 import SelectedMealItemsContext from "../store/selectedMeals-context";
 

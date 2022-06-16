@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import SelectedMealItemsContext from "../store/selectedMeals-context";
 import styles from "./MealListItems.module.css";
-import Button from "../IU/Button";
+import Button from "../UI/Button";
 
 
 const MealListItems = ({}) => {

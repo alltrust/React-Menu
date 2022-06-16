@@ -1,6 +1,6 @@
 import React, { useRef, useContext, useState } from "react";
-import MealInputWithLabel from "../IU/MealInputWithLabel";
-import Button from "../IU/Button";
+import MealInputWithLabel from "../UI/MealInputWithLabel";
+import Button from "../UI/Button";
 import styles from "./FormInput.module.css";
 import SelectedMealItemsContext from "../store/selectedMeals-context";
 

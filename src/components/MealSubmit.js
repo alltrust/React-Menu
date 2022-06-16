@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../IU/Button";
+import Button from "../UI/Button";
 import UseSubmit from "../hooks/use-submit";
 
 import styles from "./MealSubmit.module.css";

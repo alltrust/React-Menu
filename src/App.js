@@ -1,4 +1,3 @@
-import React, { useState, useContext } from "react";
 import styles from "./App.module.css";
 import Header from "./components/Header";
 import Main from "./components/Main";

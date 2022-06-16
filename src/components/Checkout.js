@@ -1,6 +1,6 @@
 import { useContext, useState, useCallback } from "react";
 import React from "react";
-import Button from "../IU/Button";
+import Button from "../UI/Button";
 import MealListItems from "./MealListItems";
 import MealSubmit from "./MealSubmit";
 import ModalWithOverlay from "./ModalWithOverlay";
